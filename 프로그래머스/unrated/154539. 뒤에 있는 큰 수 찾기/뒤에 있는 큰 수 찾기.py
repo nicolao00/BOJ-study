@@ -1,16 +1,10 @@
-from collections import deque
-def solution(numbers):
-    answer = deque()
-    dq = deque(numbers)
-    large = deque()
-    while dq:
-        temp = dq.pop()
-        while large and temp >= large[-1]:
-            large.pop()
-        if large:
-            answer.append(large[-1])
-        else:
-            answer.append(-1)
-        large.append(temp)
 
-    return list(reversed(answer))
+def solution(numbers):
+    answer=[-1]*len(numbers)
+    for i in range(len(numbers)-1, -1, -1):
+        for j in range(i-1, -1, -1):
+            if numbers[i] <= numbers[j]: break
+            answer[j] = numbers[i]
+            
+    return answer
+                   
