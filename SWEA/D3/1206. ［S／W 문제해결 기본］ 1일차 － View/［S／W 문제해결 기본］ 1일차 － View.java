@@ -10,22 +10,20 @@ class Solution {
         for (int test = 1; test < 11; test++) {
             int N = Integer.parseInt(br.readLine());
             StringTokenizer st = new StringTokenizer(br.readLine());
-            ArrayList<Integer> heights = new ArrayList<>();
+            int[] heights = new int[N];
 
-            for (int i = 0; i < N; i++) {
-                int a = Integer.parseInt(st.nextToken());
-                heights.add(a);
-            }
+            for (int i = 0; i < N; i++)
+                heights[i] = Integer.parseInt(st.nextToken());
 
             int answer = 0;
             for (int i = 2; i < N-2; i++) {
-                int h = heights.get(i);
-                int temp = 999;
+                int h = heights[i];
+                int temp = 0;
                 for (int j = -2; j < 3; j++) {
                     if (j == 0) continue;
-                    temp = Math.min(temp, h - heights.get(i + j));
+                    temp = Math.max(temp, heights[i - j]);
                 }
-                if (0 < temp && temp != 999) answer += temp;
+                answer += Math.max(0, h - temp);
             }
             sb.append('#').append(test).append(' ').append(answer);
             System.out.println(sb);
