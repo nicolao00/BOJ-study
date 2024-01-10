@@ -22,7 +22,7 @@ while dq:
             if remainW == start[remainI]: # 이미 가득찬 물병
                 continue
 
-            tmp = copy.deepcopy(bottle)
+            tmp = bottle[:]
             if start[remainI] - remainW >= water: # 부족한 양보다 줄 수 있는 물이 더 적을 때
                 tmp[i] = 0
                 tmp[remainI] += water
