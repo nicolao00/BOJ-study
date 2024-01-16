@@ -8,6 +8,8 @@ def dfs(idx, numbers, target, result):
             answer += 1
         return
 
+    if result + sums[idx] < target and result - sums[idx] > target:
+        return
     dfs(idx + 1, numbers, target, result + numbers[idx])
     dfs(idx + 1, numbers, target, result - numbers[idx])
 
@@ -15,5 +17,9 @@ def dfs(idx, numbers, target, result):
 
 
 def solution(numbers, target):
+    sums[0] = sum(numbers)
+    for i, v in enumerate(numbers[1:]):
+        sums[i + 1] = sums[i] - v
+
     dfs(0, numbers, target, 0)
     return answer
