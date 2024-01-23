@@ -1,29 +1,6 @@
-# def dfs(r, c, cnt, flag):
-#     global Irow, Icol, answer, board, visit
-#
-#     if r == Irow and c == Icol:
-#         answer = min(answer, cnt)
-#         return
-#     for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-#         tmp = flag
-#         nr, nc = r + dr, c + dc
-#         if board[nr][nc] != -1 and not visit[nr][nc]: # 범위 내 값이고 방문 안했을 경우
-#             if board[nr][nc] == 1:  # 벽인 경우 이미 벽 한개 부쉈으면 패스, 안 부셨으면 flag를 True 변환 후 방문
-#                 if flag:
-#                     continue
-#                 tmp = True
-#
-#             visit[nr][nc] = True
-#             dfs(nr, nc, cnt + 1, tmp)
-#             visit[nr][nc] = False
-# 1007-1027 / 1039-1138
-
-
-# 1007-1027 / 1039-1138
 import sys
 input = sys.stdin.readline
 from collections import deque
-
 
 Irow, Icol = map(int, input().split())
 answer = 1000001
