@@ -3,7 +3,6 @@
 import sys
 
 input = sys.stdin.readline
-print = sys.stdout.write
 
 N, M = map(int, input().split())
 
@@ -19,8 +18,8 @@ for _ in range(N):
 for i in range(1, N+1):
     for j in range(1, N+1):
         stackSum[i][j] = stackSum[i-1][j] + stackSum[i][j-1] - stackSum[i-1][j-1] + board[i][j]
-
+answer = []
 for x1, y1, x2, y2 in test:
-    answer = stackSum[x2][y2] - stackSum[x2][y1-1] - stackSum[x1-1][y2] + stackSum[x1-1][y1-1]
-    print(str(answer)+'\n')
+    answer.append(stackSum[x2][y2] - stackSum[x2][y1-1] - stackSum[x1-1][y2] + stackSum[x1-1][y1-1])
+print("\n".join(map(str, answer)))
 
