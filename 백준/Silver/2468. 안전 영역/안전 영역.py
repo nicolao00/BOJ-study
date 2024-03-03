@@ -5,6 +5,9 @@ input = sys.stdin.readline
 
 N = int(input())
 location = [list(map(int, input().split())) for _ in range(N)]
+maxV = 0
+for lst in location:
+    maxV = max(maxV, max(lst))
 
 def bfs(r, c):
     dq = deque([(r, c)])
@@ -17,7 +20,7 @@ def bfs(r, c):
                 visit[nr][nc] = True
 
 answer = 0
-for height in range(101):
+for height in range(maxV):
     result = 0
     visit = [[False] * N for _ in range(N)]
     for row in range(N):
