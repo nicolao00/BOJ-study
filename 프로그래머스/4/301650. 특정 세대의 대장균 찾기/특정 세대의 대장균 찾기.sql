@@ -1,0 +1,15 @@
+-- 코드를 작성해주세요
+WITH G1 as (
+    select ID
+    from ECOLI_DATA
+    where PARENT_ID is null
+),  G2 as (
+    select ID
+    FROM ECOLI_DATA
+    WHERE PARENT_ID IN (SELECT ID FROM G1)
+)
+
+SELECT ID
+FROM ECOLI_DATA
+WHERE PARENT_ID IN (SELECT ID FROM G2)
+ORDER BY ID 
