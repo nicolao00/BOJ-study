@@ -1,0 +1,6 @@
+-- 코드를 입력하세요 IN  ('Intact Male', 'Intact Female')  IN ('Spayed Male' 'Neutered Male', 'Spayed Female','Neutered Female')
+SELECT AO.ANIMAL_ID, AO.ANIMAL_TYPE, AO.NAME
+FROM ANIMAL_OUTS AO
+JOIN ANIMAL_INS AI USING(ANIMAL_ID)
+WHERE AI.SEX_UPON_INTAKE LIKE 'Intact%' AND (AO.SEX_UPON_OUTCOME LIKE 'Spayed%' OR AO.SEX_UPON_OUTCOME LIKE 'Neutered%')
+ORDER BY AO.ANIMAL_ID
