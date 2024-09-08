@@ -112,7 +112,7 @@ for col in range(N):
 
     # 현재 보고 있는 칸이 마지막일때까지 진행
     while curBlock < N-1:
-        # 현재칸과 다음칸이 같을때
+        # 현재칸과 다음칸이 같을때  
         if board[curBlock][col] == board[curBlock+1][col]: curBlock += 1
 
         # 현재칸이 다음칸보다 1만큼 클 때
@@ -121,7 +121,7 @@ for col in range(N):
                 break
             curBlock += L
 
-        # 현재칸이 다음칸보다 1만큼 작을 때
+        # 현재칸이 다음칸보다 1만큼 작을 때 
         elif board[curBlock][col] == board[curBlock+1][col] - 1:
             if not colSlideCheck(curBlock+1, col, -1):
                 break
