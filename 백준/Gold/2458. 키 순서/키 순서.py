@@ -1,4 +1,3 @@
-# 341 - 500
 import sys
 from collections import defaultdict, deque
 input = sys.stdin.readline
