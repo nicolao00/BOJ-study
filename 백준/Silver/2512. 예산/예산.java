@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-
+ 
 class Main {
     static int N;
     static int[] cost;
