@@ -1,4 +1,3 @@
-# 855 - 945
 import sys
 from collections import deque
 input = sys.stdin.readline
@@ -49,6 +48,3 @@ while 1:
     flag = biberCheck()
 if not flag:
     print("KAKTUS")
-
-# 물먼저 확장
-# 고슴도치 이동
