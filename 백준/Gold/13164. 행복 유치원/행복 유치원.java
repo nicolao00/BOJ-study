@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.*;
+import java.util.*; 
 
 public class Main {
     static int N, K;
@@ -21,7 +21,6 @@ public class Main {
             heights[i] = Integer.parseInt(st.nextToken());
             diffs[i] = heights[i] - heights[i-1];
         }
-
         Arrays.sort(diffs);
         for (int i = 0; i < N - K + 1; i++) {
             answer += diffs[i];
