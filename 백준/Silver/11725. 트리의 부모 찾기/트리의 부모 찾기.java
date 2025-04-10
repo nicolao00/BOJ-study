@@ -16,8 +16,9 @@ public class Main {
 
         answer = new int[N+1];
 
+        StringTokenizer st;
         for (int i = 0; i < N-1; i++) {
-            StringTokenizer st = new StringTokenizer(bf.readLine());
+            st = new StringTokenizer(bf.readLine());
             int n1 = Integer.parseInt(st.nextToken());
             int n2 = Integer.parseInt(st.nextToken());
             graph[n1].add(n2);
