@@ -1,7 +1,4 @@
 import sys
-from collections import deque
-
-# 1154
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
