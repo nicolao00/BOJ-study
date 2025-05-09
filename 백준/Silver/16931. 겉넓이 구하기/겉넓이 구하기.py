@@ -1,30 +1,13 @@
-import sys
-
-input = sys.stdin.readline
+from sys import stdin
+input = stdin.readline
 
 N, M = map(int, input().split())
-board = [list(map(int, input().split())) for _ in range(N)]
-# 위 아래
-answer = N*M*2
+s = [[0]*(M+1)] + [[0]+list(map(int, input().split())) for _ in range(N)]
 
-# 앞면에서 봤을 때
-for r in range(N):
-    answer += board[r][0]
-    for c in range(1, M):
-        answer += max(0, board[r][c] - board[r][c-1])
-    answer += board[r][M-1]
-    for c in range(M-2, -1, -1):
-        answer += max(0, board[r][c] - board[r][c+1])
+base, front, side = N*M, 0, 0
+for n in range(1, N+1):
+    for m in range(1, M+1):
+        front += max(0, s[n][m]-s[n-1][m])
+        side  += max(0, s[n][m]-s[n][m-1])
 
-
-
-
-for c in range(M):
-    answer += board[0][c]
-    for r in range(1, N):
-        answer += max(0, board[r][c] - board[r-1][c])
-    answer += board[N-1][c]
-    for r in range(N-2, -1, -1):
-        answer += max(0, board[r][c] - board[r+1][c])
-
-print(answer)
+print((base+front+side)*2)
